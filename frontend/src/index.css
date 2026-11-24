@@ -2,10 +2,18 @@
 
 @import "tailwindcss";
 
+/* @theme registers design tokens (colors, fonts, spacing, etc.) as CSS variables
+   and automatically generates matching Tailwind utility classes.
+   Example: --color-primary creates bg-primary, text-primary, border-primary, and more.
+   Values here are added to Tailwind's defaults, not replacing them. */
+@theme {
+  --color-primary: #2b85ff;
+  --color-secondary: #ef863e;
+}
+
 /* 
 Base layer: global defaults for the whole site (fonts, background, page behavior).
 */
-
 @layer base {
   html {
     font-family: "Poppins", "sans-serif";
@@ -14,5 +22,26 @@ Base layer: global defaults for the whole site (fonts, background, page behavior
   body {
     background-color: #fdfeff;
     overflow-x: hidden;
+  }
+}
+
+/* @layer components holds reusable component classes built from Tailwind utilities.
+   @apply inlines those utilities into a custom class, so you can write
+   className="input-box" instead of repeating a long list of utilities.
+   Because they sit in the components layer, utility classes in your JSX
+   (e.g. mb-0) can still override them when needed.
+
+   .input-box   → full-width text input: small text, transparent background,
+                  1.5px border, padding, rounded corners, bottom margin, no focus outline
+   .btn-primry  → full-width primary button: blue (primary) background, white text,
+                  small padding and margin, lighter blue on hover */
+
+@layer components {
+  .input-box {
+    @apply w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-1 mt-2 outline-none;
+  }
+
+  .btn-primry {
+    @apply w-full text-sm bg-primary text-white p-2 rounded my-1 hover:bg-blue-400;
   }
 }
