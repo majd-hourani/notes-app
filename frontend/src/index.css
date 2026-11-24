@@ -48,4 +48,8 @@ Base layer: global defaults for the whole site (fonts, background, page behavior
   .icon-btn {
     @apply text-xl text-slate-300 cursor-pointer hover:text-primary;
   }
+
+  .input-label {
+    @apply text-xs text-slate-400;
+  }
 }
