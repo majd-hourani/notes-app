@@ -38,7 +38,7 @@ Base layer: global defaults for the whole site (fonts, background, page behavior
 
 @layer components {
   .input-box {
-    @apply w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-1 mt-2 outline-none;
+    @apply w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-2  outline-none;
   }
 
   .btn-primry {
